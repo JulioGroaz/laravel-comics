@@ -11,9 +11,7 @@
 
 }
 
-li{
-    padding: 1rem;
-}
+
 
 
 
@@ -98,4 +96,11 @@ article.card img {
     height: 70%;
     object-fit: contain;
     align-content: center;
+}
+
+//aggiunti da me:
+
+ul{
+    display: flex;
+    flex-direction: row;
 }
