@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>laravel-comics</title>
 
-    @vite('resources/js/app.js')
-</head>
-<body>
 
-    @extends('layout.app')
+@extends('layout.app')
 
 @section('header-content')
 <header class="header-container">
-    <img src="/img/dc-logo.png" alt="">
+    <img src="/img/dc-logo.png" alt="DC Logo">
     <ul class="header-list">
         <li>CHARACTERS</li>
         <li>COMICS</li>
@@ -33,10 +23,13 @@
 @section('main-content')
 <section class="list-products">
     <div class="cards">
-        <article class="card" v-for="(card, index) in cardsList" :key="index">
-            <img :src="card.thumb" :alt="card.series">
-            <p></p>
+        @foreach ($data as $card)
+        <article class="card">
+            <img src="{{ $card['thumb'] }}" alt="{{ $card['series'] }}">
+            <p>{{ $card['title'] }}</p>
+            <p>{{ $card['price'] }}</p>
         </article>
+        @endforeach
     </div>
 </section>
 @endsection
@@ -84,22 +77,19 @@
                 </ul>
             </section>
         </div>
-        <img src="/img/dc-logo-bg.png" alt="" class="logo-bg">
+        <img src="/img/dc-logo-bg.png" alt="DC Logo Background" class="logo-bg">
     </section>
     <div class="footer-socials">
         <button>SIGN-UP NOW!</button>
         <ul class="social-list">
             <li><h3><strong>FOLLOW US</strong></h3></li>
-            <li><img src="/img/footer-facebook.png" alt=""></li>
-            <li><img src="/img/footer-twitter.png" alt=""></li>
-            <li><img src="/img/footer-pinterest.png" alt=""></li>
-            <li><img src='/img/footer-youtube.png' alt=""></li>
-            <li><img src="/img/footer-periscope.png" alt="maps"></li>
+            <li><img src="/img/footer-facebook.png" alt="Facebook"></li>
+            <li><img src="/img/footer-twitter.png" alt="Twitter"></li>
+            <li><img src="/img/footer-pinterest.png" alt="Pinterest"></li>
+            <li><img src='/img/footer-youtube.png' alt="YouTube"></li>
+            <li><img src="/img/footer-periscope.png" alt="Periscope"></li>
         </ul>
     </div>
 </footer>
 @endsection
 
-
-</body>
-</html>
